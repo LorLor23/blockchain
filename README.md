@@ -34,10 +34,12 @@ Blockchain validation to prevent tampering
 
 1. Block Creation & Hashing
 Each block contains transactions, a timestamp, a nonce, and the previous block’s hash. The SHA-256 algorithm ensures security.
+
 block = Block("0000abcd1234", [{"sender": "Alice", "receiver": "Bob", "amount": 100}])
 print(block.hash)  # Generated block hash
 
-2. Proof-of-Work Mining
+3. Proof-of-Work Mining
+   
 Mining requires finding a valid nonce that produces a hash matching the difficulty requirement.
 
 new_block = Block("0000abcd1234", [{"sender": "Charlie", "receiver": "David", "amount": 50}])
@@ -50,6 +52,7 @@ bank_chain.create_transaction("Alice", "Bob", 500)
 bank_chain.mine_pending_transactions()
 
 4. Blockchain Validation
+
 Checks data integrity by verifying each block’s hash and previous hash reference.
 print(f"Blockchain is valid: {bank_chain.is_chain_valid()}")
 
