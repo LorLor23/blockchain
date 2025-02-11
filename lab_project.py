@@ -2,7 +2,6 @@ import datetime  # Used to record timestamps for block creation
 import hashlib   # Used for generating SHA-256 hashes
 import json      # Used to format transaction data into JSON
 
-# ------------------------ BLOCK CLASS ------------------------ #
 class Block:
     def __init__(self, previous_hash, transactions, nonce=0):
 
@@ -26,14 +25,8 @@ class Block:
         print(f"Block mined: {self.hash}")  # Print the mined block's hash
 
 
-# ------------------------ BLOCKCHAIN CLASS ------------------------ #
 class Blockchain:
     def __init__(self, difficulty=3):
-        """
-        Constructor for the Blockchain class.
-
-        :param difficulty: The mining difficulty (number of leading zeros required in the hash).
-        """
         self.chain = [self.create_genesis_block()]  # Initialize the blockchain with the genesis block
         self.difficulty = difficulty  # Set mining difficulty
         self.pending_transactions = []  # List of pending transactions to be mined
